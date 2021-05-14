@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
   <q-layout view="lHh Lpr lFf">
     <q-header elevated>
       <q-toolbar>
@@ -44,8 +44,40 @@
       <router-view />
     </q-page-container>
   </q-layout>
-</template>
+</template>-->
+<template>
+  <q-layout view="hHh lpR lFf">
 
+    <q-header elevated class="bg-primary text-white" height-hint="98">
+      <q-toolbar>
+        <q-toolbar-title>
+          <q-avatar>
+            <img src="assets/quasar-logo-full.svg" alt="CD">
+          </q-avatar>
+          Gestión de Proceso de Comisión Disciplinaria
+        </q-toolbar-title>
+
+        <q-btn dense flat round icon="menu" @click="right = !right" />
+      </q-toolbar>
+
+      <q-tabs align="left">
+        <q-route-tab to="/denuncias" label="Denuncias" />
+        <q-route-tab to="/page2" label="Página Dos" />
+        <q-route-tab to="/page3" label="Página Tres" />
+      </q-tabs>
+    </q-header>
+
+    <q-drawer v-model="right" side="right" overlay bordered>
+      <!-- drawer content -->
+      
+    </q-drawer>
+
+    <q-page-container>
+      <router-view />
+    </q-page-container>
+
+  </q-layout>
+</template>
 <script lang="ts">
 import EssentialLink from 'components/EssentialLink.vue'
 
@@ -109,7 +141,7 @@ export default defineComponent({
     const leftDrawerOpen = ref(false);
     const essentialLinks = ref(linksData);
 
-    return {leftDrawerOpen, essentialLinks}
+    return {right: false, leftDrawerOpen, essentialLinks}
   }
 });
 </script>

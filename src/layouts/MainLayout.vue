@@ -1,35 +1,30 @@
-<!-- <template>
-  <q-layout view="lHh Lpr lFf">
-    <q-header elevated>
+<template>
+  <q-layout view="hHh lpR lFf">
+    <q-header elevated class="bg-primary text-white" height-hint="98">
       <q-toolbar>
-        <q-btn
-          flat
-          dense
-          round
-          icon="menu"
-          aria-label="Menu"
-          @click="leftDrawerOpen = !leftDrawerOpen"
-        />
-
         <q-toolbar-title>
-          GPCD
+          <q-avatar>
+            <img src="assets/quasar-logo-full.svg" alt="CD" />
+          </q-avatar>
+          <strong>
+            Gestión de Proceso de Comisión Disciplinaria
+          </strong>
         </q-toolbar-title>
 
-        <div>Quasar v{{ $q.version }}</div>
+        <q-btn dense flat round icon="menu" @click="right = !right" />
       </q-toolbar>
+
+      <q-tabs align="left">
+        <q-route-tab to="/" label="Inicio" />
+        <q-route-tab to="/denuncias" label="Denuncias" />
+        <q-route-tab to="/page3" label="Página Tres" />
+      </q-tabs>
     </q-header>
 
-    <q-drawer
-      v-model="leftDrawerOpen"
-      show-if-above
-      bordered
-      content-class="bg-grey-1"
-    >
+    <q-drawer v-model="right" side="right" overlay bordered>
+      <!-- drawer content -->
       <q-list>
-        <q-item-label
-          header
-          class="text-grey-8"
-        >
+        <q-item-label header class="text-grey-8">
           MENÚ
         </q-item-label>
         <EssentialLink
@@ -42,93 +37,32 @@
 
     <q-page-container>
       <router-view />
+      <!--QPageScroller at end of page for go to Top-->
+      <q-page-scroller
+        position="bottom-right"
+        :scroll-offset="150"
+        :offset="[18, 18]"
+      >
+        <q-btn fab icon="keyboard_arrow_up" color="accent" />
+      </q-page-scroller>
     </q-page-container>
-  </q-layout>
-</template>-->
-<template>
-  <q-layout view="hHh lpR lFf">
-
-    <q-header elevated class="bg-primary text-white" height-hint="98">
-      <q-toolbar>
-        <q-toolbar-title>
-          <q-avatar>
-            <img src="assets/quasar-logo-full.svg" alt="CD">
-          </q-avatar>
-          Gestión de Proceso de Comisión Disciplinaria
-        </q-toolbar-title>
-
-        <q-btn dense flat round icon="menu" @click="right = !right" />
-      </q-toolbar>
-
-      <q-tabs align="left">
-        <q-route-tab to="/denuncias" label="Denuncias" />
-        <q-route-tab to="/page2" label="Página Dos" />
-        <q-route-tab to="/page3" label="Página Tres" />
-      </q-tabs>
-    </q-header>
-
-    <q-drawer v-model="right" side="right" overlay bordered>
-      <!-- drawer content -->
-      
-    </q-drawer>
-
-    <q-page-container>
-      <router-view />
-    </q-page-container>
-
   </q-layout>
 </template>
 <script lang="ts">
-import EssentialLink from 'components/EssentialLink.vue'
+import EssentialLink from 'components/EssentialLink.vue';
 
 const linksData = [
   {
-    title: 'Denuncias',
-    caption: 'gestionar denuncias',
-    icon: 'chat',
-    link: '#/denuncias'
-  },
-  {
-    title: 'Docs',
-    caption: 'quasar.dev',
-    icon: 'school',
+    title: 'Ayuda',
+    caption: '¿Cómo uso GPCD?',
+    icon: 'help',
     link: 'https://quasar.dev'
   },
   {
-    title: 'Github',
-    caption: 'github.com/quasarframework',
-    icon: 'code',
-    link: 'https://github.com/quasarframework'
-  },
-  {
-    title: 'Discord Chat Channel',
-    caption: 'chat.quasar.dev',
-    icon: 'chat',
-    link: 'https://chat.quasar.dev'
-  },
-  {
-    title: 'Forum',
-    caption: 'forum.quasar.dev',
-    icon: 'record_voice_over',
+    title: 'Acerca de',
+    caption: 'Información y contacto',
+    icon: 'info',
     link: 'https://forum.quasar.dev'
-  },
-  {
-    title: 'Twitter',
-    caption: '@quasarframework',
-    icon: 'rss_feed',
-    link: 'https://twitter.quasar.dev'
-  },
-  {
-    title: 'Facebook',
-    caption: '@QuasarFramework',
-    icon: 'public',
-    link: 'https://facebook.quasar.dev'
-  },
-  {
-    title: 'Quasar Awesome',
-    caption: 'Community Quasar projects',
-    icon: 'favorite',
-    link: 'https://awesome.quasar.dev'
   }
 ];
 
@@ -141,7 +75,7 @@ export default defineComponent({
     const leftDrawerOpen = ref(false);
     const essentialLinks = ref(linksData);
 
-    return {right: false, leftDrawerOpen, essentialLinks}
+    return { right: false, leftDrawerOpen, essentialLinks };
   }
 });
 </script>

@@ -1,4 +1,4 @@
-# GPCD (gpcd)
+# CDIS (cdis)
 
 Gestión de Proceso de Comisión Disciplinaria
 

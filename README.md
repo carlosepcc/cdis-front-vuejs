@@ -1,6 +1,12 @@
 # CDIS (cdis)
+**Gestión de Proceso de Comisión Disciplinaria**
 
-Gestión de Proceso de Comisión Disciplinaria
+**Autores:** 
+- carlosepcc 
+- Zero9738
+
+**Tutor:**
+- yluguen
 
 ## Install the dependencies
 ```bash

@@ -4,7 +4,10 @@
       <q-toolbar>
         <q-toolbar-title>
           <q-avatar>
-            <img src="assets/quasar-logo-full.svg" alt="CD" />
+            <!-- <img
+              src="https://www.ecured.cu/images/thumb/f/f5/Emblema-onu.png/300px-Emblema-onu.png"
+              alt="CD"
+            /> --><b>CD</b><!-- TODO: Imagotipo SVG -->
           </q-avatar>
           <strong>
             Gestión de Proceso de Comisión Disciplinaria
@@ -17,7 +20,8 @@
       <q-tabs align="left">
         <q-route-tab to="/" label="Inicio" />
         <q-route-tab to="/denuncias" label="Denuncias" />
-        <q-route-tab to="/page3" label="Página Tres" />
+          <q-route-tab to="/casos" label="Casos" />
+        <q-route-tab to="/comisiones" label="Comisiones" />
       </q-tabs>
     </q-header>
 

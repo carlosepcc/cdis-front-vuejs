@@ -1,17 +1,29 @@
 <template>
   <q-page class="items-center justify-evenly" padding>
-    <Denuncia-card/>
-      </q-page>
+    <div class="q-pa-md q-gutter-sm"></div>
+
+    <q-card style="margin-bottom:1em">
+      <Denuncia-form />
+    </q-card>
+
+    <q-expansion-item />
+    <Denuncia-card
+      v-bind:key="denuncia"
+      v-for="denuncia in [1, 2, 3, 4]"
+      style="margin-bottom:1em"
+    /><!-- TODO:-->
+  </q-page>
 </template>
 
 <script lang="ts">
 import { Todo, Meta } from 'components/models';
 import { defineComponent, ref } from '@vue/composition-api';
 import DenunciaCard from 'src/components/DenunciaCard.vue';
+import DenunciaForm from 'src/components/DenunciaForm.vue';
 
 export default defineComponent({
   name: 'Denuncias',
-  components: {DenunciaCard },
+  components: { DenunciaCard, DenunciaForm },
   setup() {
     const todos = ref<Todo[]>([
       {

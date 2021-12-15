@@ -15,9 +15,25 @@
             </q-avatar>
           </q-item-section>
           <q-item-section>
-            <q-item-label>Nombre del Denunciante</q-item-label>
+            <q-item-label>Nombre del Presidente</q-item-label>
             <q-item-label caption>
-              Profesor
+              Presidente - Profesor
+            </q-item-label>
+          </q-item-section>
+        </q-item>
+        <q-item
+          ><!-- DENUNCIANTE -->
+          <q-item-section avatar>
+            <q-avatar>
+              <img
+                src="https://www.ecured.cu/images/thumb/4/41/Cult_elenaburke.jpg/135px-Cult_elenaburke.jpg"
+              />
+            </q-avatar>
+          </q-item-section>
+          <q-item-section>
+            <q-item-label>Nombre del Secretario</q-item-label>
+            <q-item-label caption>
+              Secretario - Profesor
             </q-item-label>
           </q-item-section>
         </q-item>
@@ -27,50 +43,30 @@
         <q-btn color="grey-7" flat icon="more_horiz">
           <q-menu cover auto-close>
             <q-list>
-              <q-item clickable v-ripple class="text-red">
-                <q-item-section>Eliminar</q-item-section>
-                <q-item-section avatar>
-                  <q-icon color="negative" name="delete" />
-                </q-item-section>
+              <q-item clickable>
+                <q-item-section>toDo</q-item-section>
               </q-item>
-              <q-item clickable v-ripple class="text-warning">
-                <q-item-section>Modificar</q-item-section>
-                <q-item-section avatar>
-                  <q-icon color="warning" name="edit" />
-                </q-item-section>
+              <q-item clickable>
+                <q-item-section>toDo</q-item-section>
               </q-item>
             </q-list>
           </q-menu>
         </q-btn>
       </div>
     </div>
-
-    <q-card-section class="q-pt-xs"
-      ><div class="text-caption text-grey">
-        18 de julio
-      </div>
-      <!-- DESCRIPCION DENUNCIA -->
-      <div>
-        Los estudiantes implicados bailaron encima de una mesa e ipsum dolor sit
-        amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-        labore et dolore magna aliqua.
-      </div>
-    </q-card-section>
-
     <q-separator />
 
     <q-card-actions vertical align="right"
       ><!-- BOTONES DE ACCION -->
-      <q-btn-group flat class="full-width">
+      <q-btn-group flat  class="full-width" >
         <q-btn
           flat
           :icon-right="expanded ? 'keyboard_arrow_up' : 'keyboard_arrow_down'"
           @click="expanded = !expanded"
         >
-          <!-- {{implicados.lenght}} --><!-- toDO -->4&nbsp; Estudiante/s
-          implicados
+          <!--TODO:{{implicados.lenght}} -->2&nbsp; Denuncia/s asignadas
         </q-btn>
-        <q-btn flat color="primary">Asignar a Comisión Disciplinaria</q-btn>
+        <q-btn flat color="primary">Asignar denuncia</q-btn>
       </q-btn-group>
     </q-card-actions>
     <q-separator />
@@ -78,8 +74,8 @@
       <div v-show="expanded">
         <q-card-section>
           <q-list>
-            <q-item
-              v-for="implicado in [
+            <card
+              v-for="denuncia in [
                 {
                   id: 1,
                   name: 'Menganito de Tal y Mascual',
@@ -94,28 +90,10 @@
                   avatar: 'https://www.ecured.cu/images/c/c6/Alan_Turing_II.jpg'
                 }
               ]"
-              :key="implicado.id"
-              class="q-mb-sm"
-              clickable
-              v-ripple
+              :key="denuncia.id"
             >
-              <q-item-section avatar>
-                <q-avatar>
-                  <img :src="`${implicado.avatar}`" />
-                </q-avatar>
-              </q-item-section>
-
-              <q-item-section>
-                <q-item-label>{{ implicado.name }}</q-item-label>
-                <q-item-label caption lines="1"
-                  >{{ implicado.user }}@estudiantes.uci.cu</q-item-label
-                >
-              </q-item-section>
-
-              <q-item-section side>
-                <q-icon name="email" />
-              </q-item-section>
-            </q-item>
+            {{denuncia.id}} {{denuncia.name}}
+            </card>
           </q-list>
         </q-card-section>
       </div>

@@ -38,7 +38,7 @@ module.exports = configure(function( /* ctx */ ) {
         extras: [
             // 'ionicons-v4',
             // 'mdi-v5',
-            // 'fontawesome-v5',
+            //'fontawesome-v5',
             // 'eva-icons',
             // 'themify',
             // 'line-awesome',
@@ -85,7 +85,7 @@ module.exports = configure(function( /* ctx */ ) {
         // https://v1.quasar.dev/quasar-cli/quasar-conf-js#Property%3A-framework
         framework: {
             iconSet: 'material-icons', // Quasar icon set
-            lang: 'en-us', // Quasar language pack
+            lang: 'es', // Quasar language pack
             config: {},
 
             // Possible values for "importStrategy":
@@ -169,7 +169,8 @@ module.exports = configure(function( /* ctx */ ) {
             bundler: 'packager', // 'packager' or 'builder'
 
             packager: {
-                // https://github.com/electron-userland/electron-packager/blob/master/docs/api.md#options
+                platform: 'win32'
+                    // https://github.com/electron-userland/electron-packager/blob/master/docs/api.md#options
 
                 // OS X / Mac App Store
                 // appBundleId: '',

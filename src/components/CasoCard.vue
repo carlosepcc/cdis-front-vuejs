@@ -15,9 +15,41 @@
             </q-avatar>
           </q-item-section>
           <q-item-section>
-            <q-item-label>Nombre del Denunciante</q-item-label>
+            <q-item-label>Nombre del Presidente</q-item-label>
             <q-item-label caption>
-              Profesor
+              Presidente - Profesor
+            </q-item-label>
+          </q-item-section>
+        </q-item>
+        <q-item
+          ><!-- DENUNCIANTE -->
+          <q-item-section avatar>
+            <q-avatar>
+              <img
+                src="https://www.ecured.cu/images/thumb/4/41/Cult_elenaburke.jpg/135px-Cult_elenaburke.jpg"
+              />
+            </q-avatar>
+          </q-item-section>
+          <q-item-section>
+            <q-item-label>Nombre del Secretario</q-item-label>
+            <q-item-label caption>
+              Secretario - Profesor
+            </q-item-label>
+          </q-item-section>
+        </q-item>
+        <q-item
+          ><!-- DENUNCIANTE -->
+          <q-item-section avatar>
+            <q-avatar>
+              <img
+                src="https://www.ecured.cu/images/thumb/4/41/Cult_elenaburke.jpg/135px-Cult_elenaburke.jpg"
+              />
+            </q-avatar>
+          </q-item-section>
+          <q-item-section>
+            <q-item-label>Nombre del Dennciante</q-item-label>
+            <q-item-label caption>
+              Denunciante - Profesor
             </q-item-label>
           </q-item-section>
         </q-item>
@@ -27,16 +59,10 @@
         <q-btn color="grey-7" flat icon="more_horiz">
           <q-menu cover auto-close>
             <q-list>
-              <q-item clickable v-ripple class="text-red">
-                <q-item-section>Eliminar</q-item-section>
+              <q-item clickable v-ripple class="text-primary">
+                <q-item-section>Nueva declaración</q-item-section>
                 <q-item-section avatar>
-                  <q-icon color="negative" name="delete" />
-                </q-item-section>
-              </q-item>
-              <q-item clickable v-ripple class="text-warning">
-                <q-item-section>Modificar</q-item-section>
-                <q-item-section avatar>
-                  <q-icon color="warning" name="edit" />
+                  <q-icon color="primary" name="add" />
                 </q-item-section>
               </q-item>
             </q-list>
@@ -61,16 +87,15 @@
 
     <q-card-actions vertical align="right"
       ><!-- BOTONES DE ACCION -->
-      <q-btn-group flat class="full-width">
+      <q-btn-group spread flat class="full-width">
         <q-btn
+          class="full-width"
           flat
           :icon-right="expanded ? 'keyboard_arrow_up' : 'keyboard_arrow_down'"
           @click="expanded = !expanded"
         >
-          <!-- {{implicados.lenght}} --><!-- toDO -->4&nbsp; Estudiante/s
-          implicados
+          <!-- {{implicados.lenght}} --><!--TODO:-->2&nbsp;Expediente/s
         </q-btn>
-        <q-btn flat color="primary">Asignar a Comisión Disciplinaria</q-btn>
       </q-btn-group>
     </q-card-actions>
     <q-separator />
@@ -91,13 +116,13 @@
                   id: 2,
                   name: 'Ciclanejo de Mascual y Tal',
                   user: 'menganitodt',
-                  avatar: 'https://www.ecured.cu/images/c/c6/Alan_Turing_II.jpg'
+                  avatar:
+                    'https://www.ecured.cu/images/c/c6/Alan_Turing_II.jpg',
+                  declaracion: true
                 }
               ]"
               :key="implicado.id"
               class="q-mb-sm"
-              clickable
-              v-ripple
             >
               <q-item-section avatar>
                 <q-avatar>
@@ -113,7 +138,34 @@
               </q-item-section>
 
               <q-item-section side>
-                <q-icon name="email" />
+                <q-btn color="grey-7" flat icon="more_horiz">
+                  <q-menu cover auto-close>
+                    <q-list>
+                      <q-item
+                        clickable
+                        v-ripple
+                        class="text-primary"
+                        v-if="!implicado.declaracion"
+                      >
+                        <q-item-section>Redactar Declaración</q-item-section>
+                        <q-item-section avatar>
+                          <q-icon color="primary" name="add" />
+                        </q-item-section>
+                      </q-item>
+                      <q-item
+                        clickable
+                        v-ripple
+                        class="text-primary"
+                        v-if="implicado.declaracion"
+                      >
+                        <q-item-section>Declaración</q-item-section>
+                        <q-item-section avatar>
+                          <q-icon color="primary" name="search" />
+                        </q-item-section>
+                      </q-item>
+                    </q-list>
+                  </q-menu>
+                </q-btn>
               </q-item-section>
             </q-item>
           </q-list>
